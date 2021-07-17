@@ -151,6 +151,31 @@ def getFilePath(user, file, ext): # returns filepath to a file in a user's direc
 	return filePath
 
 
+def addTokens(username, tokensAdded):
+	filePath = getUserPath(username, '.txt')
+	file = open(filePath, "r")
+	lines = getFileLines(file)
+	file.close()
+	
+	file = open(filePath, "w+")
+	for spot in range(0, 5):
+		file.write(lines[spot] + "\n")
+	file.write(str(int(lines[5]) + tokensAdded) + "\n")
+	file.close()
+	
+
+def subTokens(username, tokensSubbed):
+	filePath = getUserPath(username, '.txt')
+	file = open(filePath, "r")
+	lines = getFileLines(file)
+	file.close()
+	
+	file = open(filePath, "w+")
+	for spot in range(0, 5):
+		file.write(lines[spot] + "\n")
+	file.write(str(int(lines[5]) - tokensSubbed) + "\n")
+	file.close()
+
 def updateSheetMaster(username, sheetName): # updates list of sheets for a user when a sheet is created
 	file = open(getFilePath(username, "master", ".txt"), "a")
 	file.write(sheetName + "\n")
@@ -166,6 +191,7 @@ def createSheet(username, sheetName, sheetLink): # creates a sheet and updates s
 	file.write("0\n")
 	file.close()
 	updateSheetMaster(username, sheetName)
+	addTokens(username, 10)
 
 
 def addSheet(username): # terminal frontend for adding a sheet
