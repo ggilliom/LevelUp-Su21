@@ -8,6 +8,16 @@ def getName(username):
 	lines = getFileLines(file)
 	return lines[2]
 
+def getBioInfo(username):
+	bio = {}
+	bio["username"] = username
+	bio["password"] = input("Please enter a password: ")
+	bio["name"] = input("Please enter your name: ")
+	bio["pronouns"] = input("Please enter your pronouns: ")
+	bio["school"] = input("Please enter your school: ")
+	bio["sheets"] = []
+	return bio
+
 def getFileLines(file):
 	lines = []
 	for line in file:
@@ -39,10 +49,28 @@ def checkPassword(username, password):
 		return True
 	return False
 
+def writeBio(file, bio):
+	keys = list(bio.keys())
+	for key in keys:
+		if key == "sheets":
+			file.write("SHEETS\n")
+		else:
+			file.write(bio[key] + "\n")
+
+def updateMaster(username):
+	file = open("./users/master.txt", "a")
+	file.write("\n")
+	file.write(username)
+	file.close()
+
 def createUser(username):
-	pass
-	#testing
-	#TODO, gonna be more stuff besides this but figure out on ur own!
+	bioInfo = getBioInfo(username)
+	os.mkdir("./users/" + username)
+	print("Directory " + username + " created")
+	file = open(getFilePath(username, '.txt'), "w+")
+	updateMaster(username)
+	writeBio(file, bioInfo)
+	file.close
 
 def doesUserExist(username, ext):
 	filePath = getFilePath(username, ext)
@@ -69,7 +97,7 @@ def signedIn(username):
 def signIn():
 	print("signIn")
 	username = input("Please enter your username: ")
-	exists = doesNameExist(username, '.txt') # checks if username is in database already
+	exists = doesUserExist(username, '.txt') # checks if username is in database already
 	if exists:
 		password = input("Please enter your password: ")
 		isCorrect = checkPassword(username, password)
