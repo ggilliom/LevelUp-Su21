@@ -34,12 +34,14 @@ def checkPassword(username, password):
 	filePath = getFilePath(username, '.txt')
 	file = open(filePath, "r")
 	lines = getFileLines(file)
+	file.close()
 	if lines[1] == password:
 		return True
 	return False
 
 def createUser(username):
 	pass
+	#testing
 	#TODO, gonna be more stuff besides this but figure out on ur own!
 
 def doesUserExist(username, ext):
