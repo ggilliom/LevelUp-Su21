@@ -1,6 +1,41 @@
 import os
 
-#Sign-up/in system
+
+def sortSheets(sheets): # takes tuples in form of (sheet, rating) and sorts them, highest rating first
+	if len(sheets) == 0:
+		return sheets
+	elif len(sheets) == 1:
+		return [sheets[0]]
+	else:
+		pivot = sheets[0][1]
+		bigger = []
+		smaller = []
+		equal = []
+		for sheet in sheets:
+			if sheet[1] < pivot:
+				smaller.append(sheet)
+			if sheet[1] > pivot:
+				bigger.append(sheet)
+			if sheet[1] == pivot:
+				equal.append(sheet)
+		sortSmall = sortSheets(smaller)
+		sortBig = sortSheets(bigger)
+		return sortBig + equal + sortSmall
+
+
+def makeTuple(dictionary): # turns 1-to-1 dictionary into tuples
+	items = []
+	for key in dictionary.keys():
+		items.append((key, dictionary[key]))
+	return items
+
+def getAllSheetRatings(): # returns dict of sheet ratings in sheet:rating form
+	allSheets = getAllSheets()
+	sheetRatings = {}
+	for sheet in allSheets.keys():
+		sheetRatings[sheet] = getRatingAvg(allSheets[sheet], sheet)
+	return sheetRatings
+
 
 def getRatingAvg(username, sheetName): # returns average rating for a sheet
 	sheet = getSheetInfo(username, sheetName)
@@ -27,7 +62,7 @@ def rateSheet(): # terminal front end for sheet rating
 	rating = input("Enter your rating for the sheet: ")
 	applyRating(allSheets[sheet], sheet, rating)
 
-def getAllSheets(): # returns list of sheets in (sheet, user) form
+def getAllSheets(): # returns dict of sheets in sheet:user form
 	users = getAllUsers()
 	userSheets = {}
 	allSheets = {}
@@ -68,6 +103,22 @@ def getSheetInfo(username, sheetName): # returns dictionary of sheet info for a 
 		}
 	file.close()
 	return sheet
+
+
+def getLink(username, sheetName): # returns link of a sheet
+	file = open(getFilePath(username, sheetName, ".txt"), "r")
+	lines = getFileLines(file)
+	return lines[1]
+
+def getTotalRating(username, sheetName): # returns total rating of sheet
+	file = open(getFilePath(username, sheetName, ".txt"), "r")
+	lines = getFileLines(file)
+	return lines[2]
+
+def getNumRatings(username, sheetName): # returns number of ratings for a sheet
+	file = open(getFilePath(username, sheetName, ".txt"), "r")
+	lines = getFileLines(file)
+	return lines[3]
 
 def getAllSheetInfo(username): # returns dictionary of info for all of a user's sheets
 	sheetNames = getUserSheetNames(username)
@@ -181,6 +232,13 @@ def updateSheetMaster(username, sheetName): # updates list of sheets for a user 
 	file.write(sheetName + "\n")
 	file.close()
 
+def doesSheetExist(sheetName):
+	allSheets = getAllSheets()
+	for sheet in allSheets.keys():
+		if sheetName == sheet:
+			return True
+	return False
+
 
 def createSheet(username, sheetName, sheetLink): # creates a sheet and updates sheet master
 	filePath = getFilePath(username, sheetName, ".txt")
@@ -196,6 +254,8 @@ def createSheet(username, sheetName, sheetLink): # creates a sheet and updates s
 
 def addSheet(username): # terminal frontend for adding a sheet
 	sheetName = input("Please enter the name of the sheet: ")
+	while doesSheetExist(sheetName):
+		sheetName = input("Please enter a different sheet name: ")
 	sheetLink = input("Please enter the link to the sheet: ")
 	createSheet(username, sheetName, sheetLink)
 
