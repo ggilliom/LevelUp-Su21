@@ -1,6 +1,9 @@
 import os
 
 
+def removeSpaces(string):
+	return string.replace(" ", "")
+
 def sortSheets(sheets): # takes tuples in form of (sheet, rating) and sorts them, highest rating first
 	if len(sheets) == 0:
 		return sheets
@@ -28,6 +31,7 @@ def makeTuple(dictionary): # turns 1-to-1 dictionary into tuples
 	for key in dictionary.keys():
 		items.append((key, dictionary[key]))
 	return items
+
 
 def getAllSheetRatings(): # returns dict of sheet ratings in sheet:rating form
 	allSheets = getAllSheets()
