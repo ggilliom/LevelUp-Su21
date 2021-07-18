@@ -1,6 +1,6 @@
 # LevelUp-Su21
 
-To run the program, one need only run two things in the terminal:
+To run the program, you need only run two things in the terminal:
 
 (This assumes that you've installed Python.)
 
