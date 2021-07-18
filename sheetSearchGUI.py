@@ -264,13 +264,15 @@ def openLibrary():
         index = 0
 
         # i just ran this one to assign a username to all of these sheets...
-        
+  
+        '''      
         rand_user = random.choice(all_users)
         b.createSheet(rand_user, j, k)
         
         f.write(j + "\n")
         f.write(rand_user + "\n")
         f.write("\n")
+        '''
 
 
 
