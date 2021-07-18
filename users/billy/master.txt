@@ -1,0 +1,10 @@
+
+ Implicit Differentiation.pdf
+ Horizontal Tangents.pdf
+ Riemann Sum Tables.pdf
+ Limits by Direct Evaluation.pdf
+ Related Rates.pdf
+ Integration Trig.pdf
+ Area Under a Curve.pdf
+ Volume Washers and Disks.pdf
+ Exponential Growth and Decay.pdf

@@ -78,6 +78,12 @@ def getAllSheets(): # returns dict of sheets in sheet:user form
 			allSheets[sheet] = key
 	return(allSheets)
 
+def get_user_by_sheet(sheet_name): # get the username (author) of a given sheet
+	f = open("users//sheets_to_user_name.txt", "r")
+	all_lines = getFileLines(f)
+	# somehow all of the sheet names when written to "sheets_to_user_names.txt" had an extra space at beginning so search for [1:]
+	return all_lines[all_lines.index(sheet_name[1:]) + 1]
+
 
 def displaySheets(): # displays all sheets under each user
 	users = getAllUsers()
@@ -93,7 +99,7 @@ def displaySheets(): # displays all sheets under each user
 
 
 def getSheetInfo(username, sheetName): # returns dictionary of sheet info for a specified sheet
-	file = open(getFilePath(username, sheetName, ".txt"), "r")
+	file = open(getFilePath(username, sheetName[1:], ".txt"), "r")
 	lines = getFileLines(file)
 	name = lines[0]
 	link = lines[1]
@@ -211,6 +217,8 @@ def addTokens(username, tokensAdded):
 	file = open(filePath, "r")
 	lines = getFileLines(file)
 	file.close()
+
+	print("username: {}, lines: {}".format(username, lines))
 	
 	file = open(filePath, "w+")
 	for spot in range(0, 5):
@@ -310,7 +318,7 @@ def writeBio(file, bio):
 	for key in keys:
 		print(key)
 		file.write(bio[key] + "\n")
-	file.write("0")
+	file.write("0\n")
 
 def updateMaster(username):
 	file = open("./users/master.txt", "a")
@@ -350,16 +358,16 @@ def isNameFree(username, ext):
 	return False
 
 
-def signIn():
+def signIn(usr, pwd):
 	print("signIn")
-	username = input("Please enter your username: ")
+	username = usr # input("Please enter your username: ")
 	exists = doesUserExist(username, '.txt') # checks if username is in database already
 	if exists:
-		password = input("Please enter your password: ")
+		password = pwd # input("Please enter your password: ")
 		isCorrect = checkPassword(username, password)
 		if isCorrect:
 			print("Username and password accepted. Welcome, " + getName(username))
-			signedIn(username)
+			#signedIn(username)
 		else:
 			print("Incorrect password.")
 

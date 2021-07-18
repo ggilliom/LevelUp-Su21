@@ -1,0 +1,10 @@
+
+ Definition of the Derivative.pdf
+ Chain Rule with Inverse Trig.pdf
+ Rolles Theorem.pdf
+ Intervals of Concavity.pdf
+ Approximating Area Under Curve.pdf
+ Mean Value Theorem.pdf
+ Curve Sketching.pdf
+ Integration Substitution Power Rule.pdf
+ Integration by Parts.pdf
