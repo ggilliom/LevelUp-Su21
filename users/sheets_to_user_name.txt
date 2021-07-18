@@ -1,0 +1,228 @@
+ Limits by Direct Evaluation.pdf
+billy
+
+ Limits at Jump Discontinuities and Kinks.pdf
+stephanie
+
+ Limits at Removable Discontinuities.pdf
+robert
+
+ Limits at Removable Discontinuities Trig.pdf
+stephanie
+
+ Limits at Essential Discontinuities.pdf
+sally
+
+ Limits at Infinity.pdf
+robert
+
+ Continuity.pdf
+sal
+
+ Average Rates of Change.pdf
+caroline
+
+ Definition of the Derivative.pdf
+joseph
+
+ Instantaneous Rates of Change.pdf
+bob
+
+ Power Constant and Sum Rules.pdf
+joseph
+
+ Higher Order Derivatives.pdf
+bob
+
+ Product Rule.pdf
+caroline
+
+ Quotient Rule.pdf
+caroline
+
+ Chain Rule.pdf
+billgates
+
+ Differentiation Rules with Tables.pdf
+joseph
+
+ Chain Rule with Trig.pdf
+sally
+
+ Chain Rule with Inverse Trig.pdf
+bob
+
+ Chain Rule with Natural Logs Exps.pdf
+caroline
+
+ Chain Rule with Logs Exponentials.pdf
+michael
+
+ Logarithmic Differentiation.pdf
+sal
+
+ Implicit Differentiation.pdf
+stephanie
+
+ Derivatives of Inverse Functions.pdf
+bob
+
+ Derivative at a Value.pdf
+robert
+
+ Slope at a Value.pdf
+billgates
+
+ Tangent Lines.pdf
+stephanie
+
+ Normal Lines.pdf
+billgates
+
+ Horizontal Tangents.pdf
+bob
+
+ Rolles Theorem.pdf
+caroline
+
+ Mean Value Theorem.pdf
+jake
+
+ Intervals of Increase and Decrease.pdf
+bob
+
+ Intervals of Concavity.pdf
+billgates
+
+ Relative Extrema.pdf
+billgates
+
+ Absolute Extrema.pdf
+sally
+
+ Optimization.pdf
+michael
+
+ Curve Sketching.pdf
+jake
+
+ Comparing Function and Derivs.pdf
+bob
+
+ Motion Along a Line.pdf
+robert
+
+ Related Rates.pdf
+billy
+
+ Differentials.pdf
+sal
+
+ Newtons Method.pdf
+bennett
+
+ Limits in Form of Definition of Derivative.pdf
+caroline
+
+ LHopitals Rule.pdf
+bob
+
+ Integration Power Rule.pdf
+sal
+
+ Integration Log Rule and Exponentials.pdf
+joseph
+
+ Integration Trig.pdf
+billy
+
+ Integration Inverse Trig.pdf
+caroline
+
+ Integration Substitution Power Rule.pdf
+jake
+
+ Integration Substitution Log Exp.pdf
+michael
+
+ Integration Substitution Trig.pdf
+robert
+
+ Integration Substitution Inv Trig.pdf
+billgates
+
+ Integration by Parts.pdf
+jake
+
+ Approximating Area Under Curve.pdf
+stephanie
+
+ Area Under a Curve Using Limits.pdf
+bennett
+
+ Riemann Sum Tables.pdf
+stephanie
+
+ First Fundamental Theorem.pdf
+michael
+
+ Substitution for Definite Integrals.pdf
+joseph
+
+ Mean Value Theorem for Integrals.pdf
+sally
+
+ Second Fundamental Theorem.pdf
+bennett
+
+ Approximating Area Under Curve.pdf
+robert
+
+ Area Under a Curve Using Limits.pdf
+bennett
+
+ Riemann Sum Tables.pdf
+robert
+
+ First Fundamental Theorem.pdf
+caroline
+
+ Substitution for Definite Integrals.pdf
+joseph
+
+ Mean Value Theorem for Integrals.pdf
+stephanie
+
+ Second Fundamental Theorem.pdf
+bob
+
+ Area Under a Curve.pdf
+billy
+
+ Area Between Curves.pdf
+michael
+
+ Volume Washers and Disks.pdf
+billy
+
+ Volume Cylinders.pdf
+sal
+
+ Volume Known Cross Sections.pdf
+billgates
+
+ Motion Along a Line Revisited.pdf
+michael
+
+ Slope Fields.pdf
+joseph
+
+ Intro Differential Equations.pdf
+bennett
+
+ Separable Differential Equations.pdf
+bennett
+
+ Exponential Growth and Decay.pdf
+billy
+

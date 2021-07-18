@@ -255,8 +255,26 @@ def openLibrary():
     ultRatingFrame = LabelFrame(entireFrame)
     ultRatingFrame.grid(row=2, column=3)
 
+    all_users = b.getAllUsers()
+
+    widgets_and_data = []
+    f = open("users/sheets_to_user_name.txt", "w+")
     #List of items with their url, source, and rating...
     for i, j, k in importList: #NEEDS TO BE MODIFIED...
+        index = 0
+
+        # i just ran this one to assign a username to all of these sheets...
+        
+        rand_user = random.choice(all_users)
+        b.createSheet(rand_user, j, k)
+        
+        f.write(j + "\n")
+        f.write(rand_user + "\n")
+        f.write("\n")
+
+
+
+
         disableVar = ACTIVE
         def disableButton():
             disableVar = DISABLED
@@ -284,14 +302,17 @@ def openLibrary():
         rateInput = Entry(finalRatingsFrame, borderwidth=5, width=4, relief=RIDGE)
         rateInput.grid(row=1, column=1)
 
-        rateButton = Button(finalRatingsFrame, text="Rate", command = lambda: [rateSheet(j, rateInput.get()), disableButton()], borderwidth=5, height=2, width=4, relief=RAISED, state=disableVar)
+        rateButton = Button(finalRatingsFrame, text="Rate", command = lambda: [rateSheet(index), disableButton()], borderwidth=5, height=2, width=4, relief=RAISED, state=disableVar)
         rateButton.grid(row=1, column=2)
-    #Use sorted sheet list to create search hierarchy w/ dropdown menu...
 
-#For rating sheets...
-def rateSheet(sheetName, rating):
-    #...
-    return
+        widgets_and_data.append([rateButton, rateInput, j])
+        index += 1
+    #Use sorted sheet list to create search hierarchy w/ dropdown menu...
+    f.close()
+    #For rating sheets...
+    def rateSheet(index):
+        #...
+        b.applyRating(b.get_user_by_sheet(widgets_and_data[index][2]), widgets_and_data[index][2], widgets_and_data[index][1])
 
 #For opening profile page
 def openProfile():

@@ -1,0 +1,15 @@
+ Mean Value Theorem.pdf
+ Absolute Extrema.pdf
+ Integration Substitution Power Rule.pdf
+ Integration Substitution Inv Trig.pdf
+ Approximating Area Under Curve.pdf
+ Area Between Curves.pdf
+ Motion Along a Line Revisited.pdf
+ Exponential Growth and Decay.pdf
+ Limits at Removable Discontinuities.pdf
+ Limits at Infinity.pdf
+ Derivative at a Value.pdf
+ Motion Along a Line.pdf
+ Integration Substitution Trig.pdf
+ Approximating Area Under Curve.pdf
+ Riemann Sum Tables.pdf

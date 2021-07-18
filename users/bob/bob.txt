@@ -3,7 +3,4 @@ bob
 Bob B.
 he/him
 30
-SHEETS
-sheet1
-sheet2
-sheet3
+360

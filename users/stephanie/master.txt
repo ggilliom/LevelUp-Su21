@@ -1,0 +1,14 @@
+
+ Product Rule.pdf
+ Relative Extrema.pdf
+ Newtons Method.pdf
+ Integration Power Rule.pdf
+ Integration Log Rule and Exponentials.pdf
+ Intro Differential Equations.pdf
+ Limits at Jump Discontinuities and Kinks.pdf
+ Limits at Removable Discontinuities Trig.pdf
+ Implicit Differentiation.pdf
+ Tangent Lines.pdf
+ Approximating Area Under Curve.pdf
+ Riemann Sum Tables.pdf
+ Mean Value Theorem for Integrals.pdf
