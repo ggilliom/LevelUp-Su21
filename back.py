@@ -350,16 +350,16 @@ def isNameFree(username, ext):
 	return False
 
 
-def signIn():
+def signIn(usr, pwd):
 	print("signIn")
-	username = input("Please enter your username: ")
+	username = usr # input("Please enter your username: ")
 	exists = doesUserExist(username, '.txt') # checks if username is in database already
 	if exists:
-		password = input("Please enter your password: ")
+		password = pwd # input("Please enter your password: ")
 		isCorrect = checkPassword(username, password)
 		if isCorrect:
 			print("Username and password accepted. Welcome, " + getName(username))
-			signedIn(username)
+			#signedIn(username)
 		else:
 			print("Incorrect password.")
 

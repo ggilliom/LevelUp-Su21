@@ -8,6 +8,10 @@ import random
 from sheetScrape import importList
 import back as b
 
+
+global_name = ''
+user_info = {}
+
 #Stores user info in tuples of name and password...
 userList = []
 
@@ -72,27 +76,35 @@ def openLogin():
     registerLabel.pack()
 
     #Populate newbieFrame w/ Register Button...
-    registerButton = Button(newbieFrame, text="Sign Up", command= lambda: [signUp(), exitProgram(top)])
+    registerButton = Button(newbieFrame, text="Sign Up", command= lambda: [signUp0(), exitProgram(top)])
     registerButton.pack(padx=10, pady=10)
 
     return
 
 #For submitting info...
 def submitInfo(name, pwd, root):
+    global global_name
+    username = name.get()
+    exists = not(b.isNameFree(username, '.txt'))
+    password = pwd.get()
 
-    #if tempName == Backend.getName() and tempPwd = Backend.getPwd():
-    if (name.get() == testName and pwd.get() == testPwd):
-        openHomePage()
-        root.destroy()
-    else:
-        popup(signinError)
-        root.destroy()
-        openLogin()
+    print(exists)
 
-    return
+    if exists:
+        is_right = b.checkPassword(username, password)
+        if is_right:
+            openHomePage()
+            root.destroy()
+            return
+    
+    popup(signinError)
+    root.destroy()
+    global_name = name
+    openLogin()
+
 
 #For signing up...
-def signUp():
+def signUp0():
 
     top = Toplevel()
     top.title('Registration')
@@ -103,13 +115,9 @@ def signUp():
     registrationFrame.pack(padx=100, pady=100, expand=True)
 
     #Populate loginFrame w/ Labels...
-    userLabel = Label(registrationFrame, text="Enter username: ")
-    pwdLabel = Label(registrationFrame, text="Enter password: ")
-    confPwdLabel = Label(registrationFrame, text="Confirm password: ")
-
-    userLabel.grid(row=0, column=0)
-    pwdLabel.grid(row=1, column=0)
-    confPwdLabel.grid(row=2, column=0)
+    userLabel = Label(registrationFrame, text="Enter username: ").grid(row=0, column=0)
+    pwdLabel = Label(registrationFrame, text="Enter password: ").grid(row=1, column=0)
+    confPwdLabel = Label(registrationFrame, text="Confirm password: ").grid(row=2, column=0)
 
     #Populate loginFrame w/ Input Bars...
     userEntry = Entry(registrationFrame)
@@ -120,20 +128,59 @@ def signUp():
     pwdEntry.grid(row=1, column=3)
     confPwdEntry.grid(row=2, column=3)
 
-    registrationButton = Button(registrationFrame, text="Register", command= lambda: [enterInfo(userEntry.get(), pwdEntry.get(), confPwdEntry.get()), exitProgram(top)])
+    registrationButton = Button(registrationFrame, text="Continue", command= lambda: [enterInfo(userEntry.get(), pwdEntry.get(), confPwdEntry.get()), exitProgram(top)])
     registrationButton.grid(row=3, column=2)
 
-    return
+    #return
 
-#For registering users and storing their info...
-def enterInfo(name, pwd, cpwd):
-    if pwd == cpwd:
-        userTuple = (name, pwd)
-        userList.append(userTuple) #BACKEND: Store tuple as user file...
+    #For registering users and storing their info...
+    def enterInfo(name, pwd, cpwd):
+        global user_info
+        global global_name
+        if not(b.isNameFree(name, '.txt')):
+            popup("That username is already taken!")
+            signUp0()
+            return
+        # if password matches in both boxes
+        if pwd != cpwd:
+            popup(signupError)
+            signUp0()
+            return
+
+            #userTuple = (name, pwd)
+            #userList.append(userTuple) #BACKEND: Store tuple as user file...
+        global_name = name
+        user_info['username'] = name
+        user_info['pwd'] = pwd
+        signUp1()
+        
+def signUp1():
+    top = Toplevel()
+    top.title('Registration1')
+    top.geometry("700x500")
+
+    #Make frame for login...
+    registrationFrame = LabelFrame(top, padx=50, pady=50)
+    registrationFrame.pack(padx=100, pady=100, expand=True)
+
+    # add another data filed to this list and label will be created and its entry will be passed to function to be written to .txt file
+    fields = ["age", "pronouns", "school"]
+    entries = []
+    for i in range(len(fields)):
+        Label(registrationFrame, text="Enter your {}".format(fields[i])).grid(row=i, column=0)
+        entries.append(Entry(registrationFrame))
+        entries[i].grid(row=i, column=3)
+
+    registrationButton = Button(registrationFrame, text="Register", command= lambda: [enterInfo([e.get() for e in entries]), exitProgram(top)])
+    registrationButton.grid(row=3, column=2)
+
+    def enterInfo(args):
+        global user_info
+        for i in range(len(args)):
+            user_info[i] = args[i]
+        b.createUser(global_name, user_info)
         openHomePage()
-    else:
-        popup(signupError)
-        signUp()
+
 
 #For opening homepage...
 def openHomePage():
