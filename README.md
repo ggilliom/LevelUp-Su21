@@ -21,4 +21,4 @@ The backend uses a file system that stores users within their own director and a
 
 ## Presentation
 
-Our video submission that summarizes our solution can be found [here](https://www.youtube.com/watch?v=VP-lClhMc94&feature=youtu.be&ab_channel=JakeLehner)
+Our video submission that summarizes our solution can be found [here](https://www.youtube.com/watch?v=VP-lClhMc94&feature=youtu.be&ab_channel=JakeLehner).
